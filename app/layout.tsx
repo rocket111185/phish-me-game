@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import ThemeRegistry from '../components/ThemeRegistry.tsx';
 
 export const metadata: Metadata = {
   title: 'Next.js on Deno',
@@ -12,7 +13,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ThemeRegistry>
+          {children}
+        </ThemeRegistry>
+      </body>
     </html>
   );
 }

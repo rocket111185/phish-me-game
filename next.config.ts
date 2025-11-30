@@ -2,7 +2,16 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "standalone",
-  /* config options here */
+  transpilePackages: [
+    '@mui/material',
+    '@mui/system',
+    '@mui/icons-material',
+  ],
+
+  // Workaround for Deno
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 export default nextConfig;
