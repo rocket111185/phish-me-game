@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "next dev --turbo",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "deno:deploy": "./deploy.sh"
   },
   "dependencies": {
     "@emotion/cache": "^11.14.0",

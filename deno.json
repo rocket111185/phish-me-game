@@ -1,0 +1,12 @@
+{
+  "deploy": {
+    "project": "c25ee531-69a7-489a-a9fb-d14085832464",
+    "exclude": [
+      "**/node_modules"
+    ],
+    "include": [
+      ".next/standalone"
+    ],
+    "entrypoint": ".next/standalone/server.cjs"
+  }
+}
