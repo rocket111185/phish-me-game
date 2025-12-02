@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import ThemeRegistry from '../components/ThemeRegistry.tsx';
 
 export const metadata: Metadata = {
-  title: 'Next.js on Deno',
-  description: 'Deploy your Next.js application to Deno Deploy.',
+  title: 'Phish Me!',
+  description: 'A game intended to educate on phishing techniques in a fun and entertaining way',
 };
 
 export default function RootLayout({

@@ -1,100 +1,45 @@
-# Deploy Next.js to Deno
+# Phish Me!
 
-This is a Next.js template which can be deployed to [Deno](https://deno.com).
+"Phish Me!" is a game intended to educate on phishing techniques in a fun and
+entertaining way. You can play alone or try tricking your friends (no real
+page visits involved).
+
+Currently this game is in development, later on I will include the link for this
+game so you can try it in action.
+
+## Rules
+
+You can play this game as a single player or in a multiplayer.
+
+### Single player
+
+WIP
+
+### Multiplayer
+
+WIP
 
 ## Deploying to Deno
 
-To deploy to Deno Deploy, it is recommended to build the Next.js application
-with "standalone" output. Once the standalone application is built, you can
-deploy your application to Deno Deploy by linking your GitHub repository or
-using the CLI.
+This project is written for Deno environment. To deploy it to Deno Deploy,
+follow these steps:
 
-### Link GitHub repository
+1. Create a new project based on this repository (or your own fork). Deno Deploy
+   must detect that this is a Next.js project.
+2. Replace the project ID in `deno.json` with your own.
+3. Make sure `deploy.sh` is executable.
+4. Run `deno task build` to make a production build.
+5. Run `deno task deno:deploy` to deploy this project.
 
-The most convenient way to deploy your Next.js application to Deno Deploy is to
-link your GitHub repository to Deno Deploy. This way, your application will be
-automatically deployed on every commit you push to your repository. To link your
-GitHub repository, follow these steps:
+## Workarounds
 
-1. Fork this template (you need write permissions to the repository to link it
-   to Deno Deploy).
-2. Go to https://dash.deno.com/new_project
-3. If it's the first time you're using Deno Deploy, you will be asked to sign up
-   with your GitHub account.
-4. Search for the repository in the dropdown menu. Deno Deploy will
-   automatically detect that you are using Next.js and prepare the necessary
-   build configuration.
-5. Click "Deploy project". Deno Deploy will commit to the repository and run for
-   the first time a deploy.yml action that will build and deploy the application
-   on every push to the main branch. After that, you can customize the action
-   freely by editing the `.github/workflows/deploy.yml` file in your repository.
+1. Unlike the original [Deploy Next.js to Deno](https://github.com/nextjs/deploy-deno)
+   template, this project contains React 18.2 instead of React 19.0-rc, because
+   otherwise this version conflicts with Material UI.
+2. Due to unknown reason the production build is not performed until the
+   TypeScript checks are disabled during the build. I hope it will be resolved
+   in the future, but until now the checks must be disabled.
 
-### `deployctl` CLI
+## Credits
 
-1. Install [`deployctl`](https://github.com/denoland/deployctl):
-
-```bash
-deno install -gArf jsr:@deno/deployctl
-```
-
-2. Copy the statics into the standalone output directory:
-
-```bash
-cp -r public .next/standalone/public
-cp -r .next/static .next/standalone/.next/static
-# Deno needs the explicit .cjs extension to interpret the file as CommonJS
-mv .next/standalone/server.js .next/standalone/server.cjs
-```
-
-3. Deploy
-
-```bash
-deployctl deploy --include=.next/standalone .next/standalone/server.cjs
-```
-
-For more information, see our
-[deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying#self-hosting).
-
-### `create-next-app` with `jsr:@deno/nextjs-start`
-
-If you've created a Next.js app using
-[`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app),
-you can deploy this to Deno Deploy right from the command line.
-
-Since starting a Next.js server requires the command `next start`, in Deno
-Deploy, you can replace that command with
-[`jsr:@deno/nextjs-start`](https://jsr.io/@deno/nextjs-start).
-
-To deploy your `create-next-app` to Deno Deploy:
-
-1. Build your app
-
-```bash
-deno task build
-```
-
-2. Deploy
-
-After installing [`deployctl`](https://github.com/denoland/deployctl):
-
-```bash
-deployctl deploy --include=.next --include=public jsr:@deno/nextjs-start/v15
-```
-
-Learn more about configuring
-[`jsr:@deno/nextjs-start`](https://jsr.io/@deno/nextjs-start).
-
-## Learn More
-
-To learn more about Next.js and Deno Deploy, take a look at the following
-resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Deno Deploy](https://docs.deno.com/deploy/manual/) - Deno Deploy
-  documentation.
-
-You can check out
-[the Next.js GitHub repository](https://github.com/vercel/next.js) - your
-feedback and contributions are welcome!
+ⓒ Dmytro Rekechynskyi
